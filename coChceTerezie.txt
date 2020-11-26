@@ -22,6 +22,18 @@ uzel::uzel(double _x, double _y){
 
 pak bude existovat treba uzel_2(1.5, 5, 15)
 
+-----------------------------------------------------
+a nebo to muze byt veeeelike pole
+cislo    x     y      f
+
+    1   -1     2     -4
+    2   -0.5   2.5   -2.5
+    3    ...   ...   ...
+    ...  ...   ...   ...
+    
+ usetrime si tim asi dost prace ...
+ ----------------------------------------------------
+
 a tridu sit ... pocet prvku ve svislem smeru, ve vodorovnem, ...
 
 uzly se cisluji vcetne tech na hranici
