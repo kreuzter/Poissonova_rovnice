@@ -3,3 +3,9 @@ povedlo se mi udelat tridu sit, ktera vrati x-ove a y-ove souradnice, zkousel js
 Vubec mi to nejde a ted mi prestala fungovat i trida sit, i kdyz jsem v ni nic nemenil. program hazi return value nejak 332543546845
 
 proste uz jsem v koncich a potrebuju zachranit :(((((
+
+update - uz to zas jde, nechapu, debilita to je. Kazdopadne porad nevim jak ty uzly, nedari se mi vytvorit dynamicky alokovane 2D pole s promennymi double.
+          ani vektor vektoru mi nefunguje. A porad nevim, jak usporadat cykly, aby se zapsali hodnoty do vsech uzlu... Nevim, jak po projeti jednoho radku a
+          prirazeni x-ovych hodnot prejit na dalsi radek a zacit prirazovat x-ove hodnoty od zacatku
+          
+         Napadlo me pouzit 3 for cykly a nejak to dat do sebe, jenomze v c++ vubec nefunguje programovani pokus/omyl, jak jsem zvyklej z matlabu, kde se vsechno hned vypise :D
