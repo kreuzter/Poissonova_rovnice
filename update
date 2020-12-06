@@ -9,3 +9,6 @@ update - uz to zas jde, nechapu, debilita to je. Kazdopadne porad nevim jak ty u
           prirazeni x-ovych hodnot prejit na dalsi radek a zacit prirazovat x-ove hodnoty od zacatku
           
          Napadlo me pouzit 3 for cykly a nejak to dat do sebe, jenomze v c++ vubec nefunguje programovani pokus/omyl, jak jsem zvyklej z matlabu, kde se vsechno hned vypise :D
+         
+         
+update: hotova trida sit, ktera po zadani parametru vyhodi x y souradnice vech uzlu site (2 vektory).
