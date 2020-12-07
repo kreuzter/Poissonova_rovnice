@@ -19,17 +19,41 @@ class sit{
 		int n1;
 		int n2;
 		int n;
+		double INxx, INyy, INxy,INx, INy, IN0;     //temito parametry definuji funkci rozlozeni uvnitr pole
+		double HORIZxU, HORIZ0U, VERTyL, VERT0L, HORIZxL, HORIZ0L, VERTyR, VERT0R;       //temito okrajove podminky
+		
+		vector<double> fceIN(); //rozlozeni uvnitr pole
+		vector<double> fceHORIZu(); //OP vodorovna horni
+		vector<double> fceHORIZl();
+		vector<double> fceVERTl();  //OP svisla leva
+		vector<double> fceVERTr();
 	
-		sit(double _Ax, double _Ay, double _d1, double _d2, int _n1, int _n2);
+		sit(double _Ax, double _Ay, double _d1, double _d2, int _n1, int _n2, double _INxx, double _INyy, double _INxy, double _INx, double _INy, double _IN0, 
+		double _HORIZxU, double _HORIZ0U, double _VERTyL, double _VERT0L, double _HORIZxL, double _HORIZ0L, double _VERTyR, double _VERT0R);
 };
 
-sit::sit(double _Ax, double _Ay, double _d1, double _d2, int _n1, int _n2){
+sit::sit(double _Ax, double _Ay, double _d1, double _d2, int _n1, int _n2, double _INxx, double _INyy, double _INxy, double _INx, double _INy, double _IN0, 
+double _HORIZxU, double _HORIZ0U, double _VERTyL, double _VERT0L, double _HORIZxL, double _HORIZ0L, double _VERTyR, double _VERT0R){
 	Ax = _Ax;
 	Ay = _Ay;
 	d1 = _d1;
 	d2 = _d2;
 	n1 = _n1;
 	n2 = _n2;
+	INxx = _INxx;
+	INyy = _INyy;
+	INxy = _INxy;
+	INx = _INx;
+	INy =  _INy;
+	IN0 = _IN0;
+	HORIZxU = _HORIZxU ;
+	HORIZ0U = _HORIZ0U;
+	HORIZxL = _HORIZxL ;
+	HORIZ0L = _HORIZ0L;	
+	VERTyL = _VERTyL;
+	VERT0L = _VERT0L;
+	VERTyR = _VERTyR;
+	VERT0R = _VERT0R;	
 	
 	n = (_n1+1) * (_n2+1);
 	h1 = d1/n1;
@@ -67,4 +91,54 @@ sit::sit(double _Ax, double _Ay, double _d1, double _d2, int _n1, int _n2){
 		}
 		uy[i] = y[j];
 	}
+}
+
+vector<double> sit::fceIN(){
+	
+	vector<double> fce(n);
+	
+	for(int i = 0; i < n; i++){
+		fce[i] = INxx*ux[i]*ux[i] + INyy*uy[i]*uy[i] + INxy*ux[i]*uy[i] + INx*ux[i] + INy*uy[i] + IN0;
+	}
+	return fce;
+}
+
+vector<double> sit::fceVERTl(){
+	
+	vector<double> fceVL(n);
+	
+	for(int i = 0; i < n; i++){
+		fceVL[i] = VERTyL*uy[i] + VERT0L;
+	}
+	return fceVL;
+}
+
+vector<double> sit::fceHORIZu(){
+	
+	vector<double> fceHU(n);
+	
+	for(int i = 0; i < n; i++){
+		fceHU[i] = HORIZxU*ux[i] + HORIZ0U;
+	}
+	return fceHU;
+}
+
+vector<double> sit::fceVERTr(){
+	
+	vector<double> fceVR(n);
+	
+	for(int i = 0; i < n; i++){
+		fceVR[i] = VERTyR*uy[i] + VERT0R;
+	}
+	return fceVR;
+}
+
+vector<double> sit::fceHORIZl(){
+	
+	vector<double> fceHL(n);
+	
+	for(int i = 0; i < n; i++){
+		fceHL[i] = HORIZxL*ux[i] + HORIZ0L;
+	}
+	return fceHL;
 }
