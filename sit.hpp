@@ -85,7 +85,7 @@ double _HORIZxU, double _HORIZ0U, double _VERTyL, double _VERT0L, double _HORIZx
 
 	//souradnice Y uzlu
 	j = 0;
-	for(int i = 0; i < n; i++){
+	for(int i = 0; i <= n-1; i++){
 		if(i % (n1+1) == 0 && i != 0){
 			j++;
 		}
@@ -95,9 +95,9 @@ double _HORIZxU, double _HORIZ0U, double _VERTyL, double _VERT0L, double _HORIZx
 
 vector<double> sit::fceIN(){
 	
-	vector<double> fce(n);
+	vector<double> fce(n );
 	
-	for(int i = 0; i < n; i++){
+	for(int i = 0; i <= n-1; i++){
 		fce[i] = INxx*ux[i]*ux[i] + INyy*uy[i]*uy[i] + INxy*ux[i]*uy[i] + INx*ux[i] + INy*uy[i] + IN0;
 	}
 	return fce;
@@ -105,9 +105,9 @@ vector<double> sit::fceIN(){
 
 vector<double> sit::fceVERTl(){
 	
-	vector<double> fceVL(n);
+	vector<double> fceVL(n );
 	
-	for(int i = 0; i < n; i++){
+	for(int i = 0; i <= n-1; i++){
 		fceVL[i] = VERTyL*uy[i] + VERT0L;
 	}
 	return fceVL;
@@ -115,9 +115,9 @@ vector<double> sit::fceVERTl(){
 
 vector<double> sit::fceHORIZu(){
 	
-	vector<double> fceHU(n);
+	vector<double> fceHU(n );
 	
-	for(int i = 0; i < n; i++){
+	for(int i = 0; i <= n-1; i++){
 		fceHU[i] = HORIZxU*ux[i] + HORIZ0U;
 	}
 	return fceHU;
@@ -125,9 +125,9 @@ vector<double> sit::fceHORIZu(){
 
 vector<double> sit::fceVERTr(){
 	
-	vector<double> fceVR(n);
+	vector<double> fceVR(n );
 	
-	for(int i = 0; i < n; i++){
+	for(int i = 0; i <= n-1; i++){
 		fceVR[i] = VERTyR*uy[i] + VERT0R;
 	}
 	return fceVR;
@@ -135,9 +135,9 @@ vector<double> sit::fceVERTr(){
 
 vector<double> sit::fceHORIZl(){
 	
-	vector<double> fceHL(n);
+	vector<double> fceHL(n );
 	
-	for(int i = 0; i < n; i++){
+	for(int i = 0; i <= n-1; i++){
 		fceHL[i] = HORIZxL*ux[i] + HORIZ0L;
 	}
 	return fceHL;
