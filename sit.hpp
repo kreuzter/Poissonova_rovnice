@@ -27,6 +27,8 @@ class sit{
 		vector<double> fceHORIZl();
 		vector<double> fceVERTl();  //OP svisla leva
 		vector<double> fceVERTr();
+		
+		void vypis();
 	
 		sit(double _Ax, double _Ay, double _d1, double _d2, int _n1, int _n2, double _INxx, double _INyy, double _INxy, double _INx, double _INy, double _IN0, 
 		double _HORIZxU, double _HORIZ0U, double _VERTyL, double _VERT0L, double _HORIZxL, double _HORIZ0L, double _VERTyR, double _VERT0R);
@@ -93,9 +95,19 @@ double _HORIZxU, double _HORIZ0U, double _VERTyL, double _VERT0L, double _HORIZx
 	}
 }
 
+void sit::vypis(){
+	cout << "Levy dolni bod:  [" << Ax << "; " << Ay << "]" << endl;
+	cout << "Rozmery site:    [" << d1 << "; " << d2 << "]" << endl;
+	cout << "Krok v x:        " << h1 << endl;
+	cout << "Krok v y:        " << h2 << endl;
+	cout << "Pocet kroku v x: " << n1 << endl;
+	cout << "Pocet kroku v y: " << n2 << endl;
+	cout << "Pocet uzlu:      " << n  << endl;		
+};
+
 vector<double> sit::fceIN(){
 	
-	vector<double> fce(n );
+	vector<double> fce(n);
 	
 	for(int i = 0; i <= n-1; i++){
 		fce[i] = INxx*ux[i]*ux[i] + INyy*uy[i]*uy[i] + INxy*ux[i]*uy[i] + INx*ux[i] + INy*uy[i] + IN0;
