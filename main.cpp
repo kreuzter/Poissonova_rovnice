@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <math.h>
 
 #include "sit.hpp"   //definuje tridu sit
 #include "vypis.hpp" //obsahuje funkce pro vypis dat
@@ -20,8 +21,8 @@ int main() {
 	double d2 = 50.0;
 	
 	//pocet kroku
-	int n1 = 170;
-	int n2 = 170;
+	int n1 = 3;
+	int n2 = 3;
 	
 	//definuj funkci vnitrniho rozlozeni
 	double INxx = 0;
@@ -114,7 +115,7 @@ int main() {
 	}	
 	cout << endl << endl;
 
-/*
+
 	// tohle nevypisovat pro "rozumne hustou sit"	
 	// pro par uzlu proc ne, ale pro vic jak 20 je to kravina
 	cout << "Matice soustavy | vektor pravych stran:" << endl;
@@ -126,6 +127,81 @@ int main() {
 	}			
 
 
-*/
+	int n = g.n;
+	int N = n - 1;
+	
+	double r[n][10000],suma[n],normar;
+	
+	int m,i,j;
+	
+	m=0;
+	for(i = 0; i <= N; i++){
+			r[i][m]=0;
+		}
+		
+	do
+    {
+        m = m + 1;
+    
+    	for (j = 0; j <= N; j = j+1)
+        	{
+            	suma[j] = 0;
+            
+            	// r0 (=r1)
+            	if ((j == 0))
+            	{
+                	for (i = 1; i <= N; i++)
+                	{
+                    	suma[j] = suma[j] + (S[j*n+i]*r[i][m - 1]);
+                	}
+                	r[j][m] = (1/S[j*n+j])*(p[j] - suma[j]);
+            	}
+            
+            	// r1,...,rn-1
+            	else if ((j > 0) && (j < N))
+            	{
+            	    for (i = 0; i < j; i++)
+                	{
+                    	suma[j] = suma[j] + (S[j*n+i]*r[i][m]);
+                	}
+                	for (int i = j + 1; i <= N; i++)
+                	{
+                    	suma[j] = suma[j] + (S[j*n+i]*r[i][m - 1]);
+                	}
+                	r[j][m] = (1/S[j*n+j])*(p[j] - suma[j]);
+            	}
+            
+            	// rn
+            	else if ((j == N))
+            	{
+                	for (i = 0; i < N; i++)
+                	{
+                    	suma[j] = suma[j] + (S[j*n+i]*r[i][m]);
+                	}
+					
+                	r[j][m] = (1/S[j*n+j])*(p[j] - suma[j]);
+				}
+        	}
+        normar=0;
+		for(j=0;j<=N;j=j+1)
+        	{
+            	normar = normar + pow(r[j][m]-r[j][m-1],2);
+        	}
+        normar = sqrt(normar);	
+        	
+    }while ((normar > 0.00001) && (m < 10000));
+    
+    cout << endl << "r[" << m << "] = [";
+    for (int j=0;j<=N;j=j+1)
+    {
+        cout << r[j][m];
+        if (j<N)
+        {
+            cout << ", ";
+        }
+    }
+    cout << "]T" << endl;
+
+
 	return 0;
 }
