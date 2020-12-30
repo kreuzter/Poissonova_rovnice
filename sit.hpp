@@ -1,4 +1,5 @@
 #pragma once
+#include <fstream>
 
 #include <vector>
 
@@ -96,13 +97,15 @@ float _HORIZxU, float _HORIZ0U, float _VERTyL, float _VERT0L, float _HORIZxL, fl
 }
 
 void sit::vypis(){
-	cout << "Levy dolni bod:  [" << Ax << "; " << Ay << "]" << endl;
-	cout << "Rozmery site:    [" << d1 << "; " << d2 << "]" << endl;
-	cout << "Krok v x:        " << h1 << endl;
-	cout << "Krok v y:        " << h2 << endl;
-	cout << "Pocet kroku v x: " << n1 << endl;
-	cout << "Pocet kroku v y: " << n2 << endl;
-	cout << "Pocet uzlu:      " << n  << endl;		
+	ofstream file("vypis.txt", ofstream::app);
+	file << "Levy dolni bod:  [" << Ax << "; " << Ay << "]" << endl;
+	file << "Rozmery site:    [" << d1 << "; " << d2 << "]" << endl;
+	file << "Krok v x:        " << h1 << endl;
+	file << "Krok v y:        " << h2 << endl;
+	file << "Pocet kroku v x: " << n1 << endl;
+	file << "Pocet kroku v y: " << n2 << endl;
+	file << "Pocet uzlu:      " << n  << endl;		
+	file.close();
 };
 
 vector<float> sit::fceIN(){

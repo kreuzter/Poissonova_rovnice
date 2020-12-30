@@ -1,0 +1,78 @@
+Zadani parametru. Nutno dodrzet cisla radku!
+
+souradnice leveho dolniho bodu
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Ax
+0.0
+
+Ay
+0.0
+	
+rozmer site
+~~~~~~~~~~~ 
+v x
+5
+
+v y
+5
+	
+pocet kroku, maximalni hodnoty: max 170 - pro double
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+v x
+50
+
+v y
+50
+	
+definuj funkci vnitrniho rozlozeni
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+INxx
+0
+
+INyy
+0
+
+INxy
+0
+
+INx
+1
+
+INy
+1
+	
+IN0
+0
+	
+definuj svisle OP
+~~~~~~~~~~~~~~~~~
+VERTyL - leve
+0
+
+VERT0L
+0
+
+VERTyR - prave
+3
+
+VERT0R
+0
+
+definuj vodorovne OP
+~~~~~~~~~~~~~~~~~~~~
+HORIZxU - horni
+3
+
+HORIZ0U
+0
+
+HORIZxL - spodni
+0
+
+HORIZ0L
+0
+
+vypis?
+~~~~~~
+1 - ano, 0 - ne
+0
